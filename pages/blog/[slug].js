@@ -13,6 +13,7 @@ import { alpha, darken, styled } from '@mui/material/styles';
 import BrandingProvider from '../BrandingProvider';
 import { marked } from 'marked';
 import { blue, blueDark } from '../../modules/brandingTheme';
+import Head from '../../components/Head';
 
 const classes = {
   back: 'TopLayoutBlog-back',
@@ -550,15 +551,21 @@ const styles = ({ theme }) => ({
 });
 
 function BlogLayout({
-  frontmatter: { title, date, cover_image },
+  frontmatter: { title, date, cover_image, excerpt },
   slug,
   content,
 }) {
 
   const theme = useTheme();
-
+  const finalTitle = title ? title : null;
+  const description = excerpt ? excerpt : null;
   return (
     <BrandingProvider>
+      <Head
+        title={`${finalTitle} - Raspbaby`}
+        description={description}
+        disableAlternateLocale
+      />
       <Box sx={{ width: '100%', minHeight: '100vh', margin: '0 auto' }}>
         <NavBar />
         <Container
@@ -617,7 +624,7 @@ function BlogLayout({
                 <h1>{title}</h1>
               </React.Fragment>
             ) : null}
-           <Root dangerouslySetInnerHTML={{ __html: marked(content) }} />
+            <Root dangerouslySetInnerHTML={{ __html: marked(content) }} />
           </Box>
         </Container>
       </Box>

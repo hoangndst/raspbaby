@@ -6,6 +6,7 @@ import NavBar from '../components/NavBar';
 import Container from '@mui/material/Container';
 import PreviewBlog from '../components/PreviewBlog';
 import BrandingProvider from './BrandingProvider';
+import Head from '../components/Head';
 
 export default function HomePage({ blogs }) {
 
@@ -13,6 +14,11 @@ export default function HomePage({ blogs }) {
 
   return (
     <BrandingProvider>
+      <Head
+        title="Raspbaby"
+        description="@hoangndst's tiny server"
+        disableAlternateLocale
+      />
       <main sx={{ width: '100%', minHeight: '100vh', margin: '0 auto' }}>
         <NavBar />
         <Container
