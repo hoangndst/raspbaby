@@ -20,6 +20,8 @@ import InputBase from '@mui/material/InputBase';
 import { Tooltip } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import Discord from './Discord';
+
 
 const pages = ['Products', 'Buddy', 'Blog'];
 
@@ -174,6 +176,7 @@ const NavBar = () => {
             </IconButton> */}
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'flex' } }}>
+            <Discord />
             <Tooltip
               sx={{
                 marginRight: theme.spacing(1),
@@ -198,6 +201,7 @@ const NavBar = () => {
                 {theme.palette.mode === 'dark' ? <LightModeOutlinedIcon fontSize='1.5rem' /> : <DarkModeOutlinedIcon fontSize='1.5rem' />}
               </IconButton>
             </Tooltip>
+
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' }, alignItems: 'center' }}>
             <IconButton
