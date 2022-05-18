@@ -10,11 +10,12 @@ import Button from '@mui/material/Button';
 import Link from 'next/link';
 
 
-const PaperComponent = styled(Paper)(({ theme }) => ({
+export const PaperComponent = styled(Paper)(({ theme }) => ({
   p: 2,
   color: theme.palette.common.white,
+  backgroundColor: theme.palette.mode === 'dark' ? 'rgb(19, 47, 76)' : theme.palette.common.white,
   borderRadius: theme.shape.borderRadius,
-  border: `1px solid ${theme.palette.divider}`,
+  border: theme.palette.mode === 'dark' ? '1px solid rgb(30, 73, 118)' : '1px solid #E7EBF0',
   padding: theme.spacing(2),
   display: 'flex',
   flexDirection: 'column',
@@ -33,22 +34,20 @@ const PaperComponent = styled(Paper)(({ theme }) => ({
       outline: 'none',
     },
   },
+  height: '400px'
 
 }));
 
-export default function PreviewBlog({ blog }) {
+export default function PreviewBlog({ blog, hasImage }) {
   return (
-    <Grid item xs={12} md={6}>
-
-
-      <PaperComponent elevation={1} >
+    <>
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'left',
             alignItems: 'center',
             gap: '10px',
-            marginBottom: '15px'
+            marginBottom: '15px',
           }}
         >
           <Chip
@@ -62,16 +61,19 @@ export default function PreviewBlog({ blog }) {
             sx={{ fontSize: '0.8125rem', display: 'inline-flex', alignItems: 'center' }}
           />
         </Box>
-        <CardMedia
-          component="img"
-          height="160"
-          width="140"
-          sx={{
-            borderRadius: '10px',
-          }}
-          image={blog.frontmatter.cover_image}
-          alt={`cover image ${blog.slug}`}
-        />
+        {hasImage ?
+          (<CardMedia
+            component="img"
+            height="160"
+            width="240"
+            sx={{
+              borderRadius: '10px',
+            }}
+            image={blog.frontmatter.cover_image}
+            alt={`cover image ${blog.slug}`}
+          />) 
+          : null
+        }
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {blog.frontmatter.title}
@@ -105,7 +107,6 @@ export default function PreviewBlog({ blog }) {
             </Button>
           </Link>
         </CardActions>
-      </PaperComponent>
-    </Grid>
+    </>
   );
 }
