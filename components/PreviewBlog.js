@@ -70,7 +70,7 @@ export default function PreviewBlog({ blog, hasImage }) {
               borderRadius: '10px',
             }}
             image={blog.frontmatter.cover_image}
-            alt={`cover image ${blog.slug}`}
+            alt={`cover-image-${blog.slug}`}
           />) 
           : null
         }
