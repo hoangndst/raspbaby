@@ -16,8 +16,6 @@ const PAGE_SIZE = 2;
 export default function HomePage({ blogs }) {
   
   const theme = useTheme();
-  console.log(blogs);
-  
   const [firstPost, secondPost, ...otherPosts] = blogs ? blogs : 
   [
     {

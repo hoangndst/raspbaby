@@ -1,6 +1,6 @@
 ---
 title: 'Dictionary Java'
-date: '2022-04-06T00:00:00.000Z'
+date: '2021-09-21T11:07:50Z'
 excerpt: 'Multiple languages dictionary. OOP Project.'
 tags: ['App', 'Java']
 cover_image: '/static/images/dictionary-java/dashboard.png'

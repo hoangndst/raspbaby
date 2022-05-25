@@ -3,6 +3,8 @@ import HomePage from './HomePage';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { sortByDate } from '../utils'
+
 
 export default function Home({ blogs }) {
   return (
@@ -27,7 +29,7 @@ export async function getStaticProps() {
   });
   return {
     props: {
-      blogs,
+      blogs: blogs.sort(sortByDate)
     },  
   }
 }

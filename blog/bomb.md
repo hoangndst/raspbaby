@@ -1,6 +1,6 @@
 ---
 title: 'Bomb'
-date: '2022-04-06T00:00:00.000Z'
+date: '2021-12-13T13:32:20Z'
 excerpt: 'Game Project. OOP Project.'
 tags: ['Game', 'Java']
 cover_image: '/static/images/bomb/logo.gif'
